@@ -125,7 +125,7 @@ function createItemElement(item) {
     buyButton.onclick = () => updateCart(item.name, item.price, inputField, 1);
     
     itemDiv.innerHTML = `
-        <img src="${item.img}" alt="${item.name}">
+        <img src="${item.img}" alt="${item.name}" loading="lazy">
         <h3>${item.name}</h3>
         <p>${formatKoreanNumber(item.price)} 원</p>
     `;
