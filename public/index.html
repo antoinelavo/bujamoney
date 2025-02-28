@@ -8,27 +8,29 @@
 </head>
 <body>
     <header>
-        <h1>이재용의 재산 써보기</h1>
-        <p>이재용의 순자산: <span id="total-money">12.76조</span></p>
+        <div id="intro">
+            <h1>이재용의 재산 써보기</h1>
+        </div>
     </header>
     
     <main>
-        <div id="money-left">남은 돈: <span id="remaining-money">12.76조</span></div>
+        <div id="money-left">
+            남은 돈: <span id="remaining-money">12.76조 원</span>
+            <button id="scroll-to-receipt">영수증 보기</button>
+        </div>
         <div id="items-container"></div>
     </main>
     
     <section id="receipt-section">
-        <h2>영수증</h2>
+        <hr>
+        <h2>이재용 재산 써보기 체험 영수증</h2>
         <div id="receipt"></div>
         <div id="grand-total-container">
             <strong>총 사용 금액: </strong><span id="grand-total">0 원</span>
         </div>
     </section>
+
     
-    <footer>
-        <p>© 2025 Spend Simulator KR</p>
-    </footer>
-    
-    <script src="index.js"></script>
+    <script type = "module" src="index.js"></script>
 </body>
 </html>

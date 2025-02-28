@@ -1,44 +1,42 @@
+import { supabase } from './supabase.js';
+
+
 const totalMoney = 12760000000000; // 12.76조
 let remainingMoney = totalMoney;
 const cart = {};
 
 const items = [
-    { name: "식빵", price: 3000, img: "https://your-supabase-url/bread.jpg" },
-    { name: "김밥", price: 4000, img: "https://your-supabase-url/gimbap.jpg" },
-    { name: "쌀 1kg", price: 4000, img: "https://your-supabase-url/rice.jpg" },
-    { name: "즉석 라면 (5개입)", price: 3000, img: "https://your-supabase-url/instant-noodles.jpg" },
-    { name: "삼겹살 1인분", price: 16000, img: "https://your-supabase-url/beef.jpg" },
-    { name: "월 평균 전기 요금", price: 100000, img: "https://your-supabase-url/electric-bill.jpg" },
-    { name: "서울 원룸 한 달 월세", price: 800000, img: "https://your-supabase-url/seoul-rent.jpg" },
-    { name: "서울 지하철 1회 승차권", price: 1400, img: "https://your-supabase-url/subway-ticket.jpg" },
-
-    { name: "아이폰 16 프로 맥스", price: 1900000, img: "https://your-supabase-url/iphone16.jpg" },
-    { name: "삼성 갤럭시 S25 울트라", price: 1800000, img: "https://your-supabase-url/galaxy-s25.jpg" },
-    { name: "콘서트 티켓", price: 140000, img: "https://your-supabase-url/bts-ticket.jpg" },
-    { name: "시그니엘 서울 1박", price: 1000000, img: "https://your-supabase-url/luxury-hotel.jpg" },
-    { name: "롤렉스 시계", price: 13000000, img: "https://your-supabase-url/rolex.jpg" },
-    { name: "람보르기니 아벤타도르 SVJ", price: 700000000, img: "https://your-supabase-url/lamborghini.jpg" },
-    { name: "한남더힐 100평", price: 10000000000, img: "https://your-supabase-url/gangnam-villa.jpg" },
-    { name: "아이 출산", price: 210000, img: "https://your-supabase-url/porsche-911.jpg" },
-    { name: "김앤장 변호사 연봉", price: 1000000000, img: "https://your-supabase-url/porsche-911.jpg" },
-    { name: "국회의원 연봉", price: 160000000, img: "https://your-supabase-url/porsche-911.jpg" },
-    { name: "대기업 연봉", price: 130000000, img: "https://your-supabase-url/porsche-911.jpg" },
-    { name: "에르메스 버킨백", price: 13000000, img: "https://your-supabase-url/porsche-911.jpg" },
-    { name: "포르쉐 911 터보 S", price: 300000000, img: "https://your-supabase-url/porsche-911.jpg" },
-    { name: "제네시스 G80", price: 70000000, img: "https://your-supabase-url/genesis-g80.jpg" },
-
-
-    { name: "개인 헬리콥터", price: 4000000000, img: "https://your-supabase-url/helicopter.jpg" },
-    { name: "보잉 737 항공기", price: 100000000000, img: "https://your-supabase-url/boeing-747.jpg" },
-    { name: "초호화 크루즈", price: 1000000000000, img: "https://your-supabase-url/cruise-ship.jpg" },
-    { name: "롯데월드타워", price: 6000000000000, img: "https://your-supabase-url/lotte-tower.jpg" },
-    { name: "KBO 야구팀 인수", price: 130000000000, img: "https://your-supabase-url/k-league-team.jpg" },
-    { name: "할리우드 영화 제작비 지원", price: 60000000000, img: "https://your-supabase-url/hollywood-movie.jpg" },
-    { name: "K2 흑표 전차", price: 8500000000, img: "https://your-supabase-url/k2-tank.jpg" },
-    { name: "스페이스X 우주여행", price: 60000000000, img: "https://your-supabase-url/spacex-trip.jpg" },
-
-    // Cost of Raising a Child
-    { name: "한국에서 아이를 대학까지 키우는 비용", price: 400000000, img: "https://your-supabase-url/child-raising.jpg" }
+    { name: "서울 지하철 1회 요금", price: 1400, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/metro.webp" },
+    { name: "식빵", price: 3000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/bread.webp" },
+    { name: "김밥", price: 4000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/gimbap.webp" },
+    { name: "쌀 1kg", price: 4000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/rice.webp" },
+    { name: "즉석 라면 (5개입)", price: 3000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/ramyun.webp" },
+    { name: "삼겹살 1인분", price: 16000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/porkbelly.webp" },
+    { name: "월 평균 전기 요금", price: 100000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/electricity.webp" },
+    { name: "서울 원룸 한 달 월세", price: 800000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/seoul.webp" },
+    { name: "콘서트 티켓", price: 170000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/concert.webp" },
+    { name: "출산 비용", price: 210000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/birth.webp" },
+    { name: "아이폰 16 프로 맥스", price: 1900000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/iphone.webp" },
+    { name: "삼성 갤럭시 S25 울트라", price: 1800000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/samsung.webp" },
+    { name: "시그니엘 서울 1박", price: 1000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/hotel.webp" },
+    { name: "에르메스 버킨백", price: 13000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/birkin.webp" },
+    { name: "국회의원 연봉", price: 160000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/congress.webp" },
+    { name: "대기업 연봉", price: 130000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/company.webp" },
+    { name: "김앤장 변호사 연봉", price: 1000000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/lawyer.webp" },
+    { name: "1인 양육비 (대학까지)", price: 400000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/diploma.webp" },
+    { name: "롤렉스 시계", price: 13000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/rolex.webp" },
+    { name: "한남더힐 100평", price: 10000000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/apartment.webp" },
+    { name: "제네시스 G80", price: 70000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/genesis.webp" },
+    { name: "람보르기니 아벤타도르", price: 700000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/lambo.webp" },
+    { name: "포르쉐 911 터보 S", price: 300000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/porsche.webp" },
+    { name: "개인 헬리콥터", price: 4000000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/helicopter.webp" },
+    { name: "보잉 737 항공기", price: 100000000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/boeing.webp" },
+    { name: "KBO 야구팀 인수", price: 130000000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/baseball.webp" },
+    { name: "초호화 크루즈", price: 1000000000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/cruise.webp" },
+    { name: "할리우드 영화 제작비 지원", price: 60000000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/movie.webp" },
+    { name: "K2 흑표 전차", price: 8500000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/tank.webp" },
+    { name: "스페이스X 우주여행", price: 60000000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/spacex.webp" },
+    { name: "롯데월드타워", price: 6000000000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/lotte.webp" }
 ];
 
 
@@ -87,7 +85,7 @@ function updateReceipt() {
         itemRow.classList.add("receipt-item");
         itemRow.innerHTML = `
             <span>${itemName}</span>
-            <span>${quantity}개</span>
+            <span>${quantity.toLocaleString("ko-KR")}개</span>
             <span>${formatKoreanNumber(total)} 원</span>
         `;
         receiptContainer.appendChild(itemRow);
@@ -141,3 +139,8 @@ function createItemElement(item) {
 items.forEach(item => {
     createItemElement(item);
 });
+
+document.getElementById("scroll-to-receipt").addEventListener("click", function() {
+    document.getElementById("receipt-section").scrollIntoView({ behavior: "smooth" });
+});
+

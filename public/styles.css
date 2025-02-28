@@ -40,11 +40,38 @@ main {
     font-weight: bold;
 }
 
-/* Net Worth Section */
-.net-worth {
-    margin: 20px;
-    font-size: 28px;
+#money-left{
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    min-width: calc(20dvw + 100px);
+    max-width: 900px;
+    align-content: center;
+    margin: auto;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 25px;
     font-weight: bold;
+}
+
+
+#money-left button {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0074cc;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#money-left button:hover {
+    background-color: #005fa3;
 }
 
 /* Items Grid */
@@ -88,4 +115,47 @@ main {
     margin-top: 30px;
     font-size: 14px;
     color: #555;
+}
+
+
+#receipt-section{
+    min-height: 300px;
+    margin-bottom: 3em;
+}
+
+.receipt-item {
+    display: flex;
+    justify-content: space-between;  
+    text-align: left;  /* Align text to the left */
+    width: 100%;  
+    max-width: 400px;
+    margin: 1.5em auto; 
+    white-space: nowrap;
+}
+
+.receipt-item span {
+    flex: 1;  
+    text-align: left;  
+}
+
+.receipt-item span:nth-child(1) { 
+    text-align: left;
+    min-width: 10em; 
+}
+
+.receipt-item span:nth-child(2) { 
+    text-align: center;
+    min-width: 3em; 
+}
+
+.receipt-item span:nth-child(3) { /* Price column */
+    text-align: right;
+    min-width: 2em; 
+}
+
+
+#grand-total-container, #remaining-money-korean{
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 1em;
 }
