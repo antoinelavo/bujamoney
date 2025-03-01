@@ -94,19 +94,20 @@ main {
 }
 
 .item input{
-    width: 30%
+    width: 20%;
 }
 
 .item button{
     border: none;
     padding: 8px 12px;
-    margin-top: 10px;
+    margin: 0px 1em;
     cursor: pointer;
     border-radius: 5px;
 }
 
 .item button:hover{
-    background-color: #005fa3;
+    background-color: #0074cc;
+    color: white;
 }
 
 
