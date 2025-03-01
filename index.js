@@ -34,7 +34,6 @@ const items = [
     { name: "KBO 야구팀 인수", price: 130000000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/baseball.webp" },
     { name: "초호화 크루즈", price: 1000000000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/cruise.webp" },
     { name: "할리우드 영화 제작비 지원", price: 60000000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/movie.webp" },
-    { name: "K2 흑표 전차", price: 8500000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/tank.webp" },
     { name: "스페이스X 우주여행", price: 60000000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/spacex.webp" },
     { name: "롯데월드타워", price: 6000000000000, img: "https://rnoeqibpmgyhaurcveax.supabase.co/storage/v1/object/public/images/lotte.webp" }
 ];
