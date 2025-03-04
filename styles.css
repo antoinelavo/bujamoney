@@ -100,7 +100,7 @@ main {
 .item button{
     border: none;
     padding: 8px 12px;
-    margin: 0px 1em;
+    margin: 0px 10px;
     cursor: pointer;
     border-radius: 5px;
 }
